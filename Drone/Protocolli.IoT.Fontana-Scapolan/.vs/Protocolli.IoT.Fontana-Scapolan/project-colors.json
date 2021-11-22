@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c2c00f4b-505a-4902-a71d-181bbe93d4f9": {
+      "ProjectGuid": "c2c00f4b-505a-4902-a71d-181bbe93d4f9",
+      "DisplayName": "Protocolli.IoT.Fontana-Scapolan",
+      "ColorIndex": 0
+    },
+    "f222e84b-6ff3-4557-a04d-e718ab2e7d71": {
+      "ProjectGuid": "f222e84b-6ff3-4557-a04d-e718ab2e7d71",
+      "DisplayName": "Protocolli.IoT.Fontana-Scapolan.WebApp",
+      "ColorIndex": 1
+    },
+    "24d84939-3437-49a6-b06b-8dd91c26509d": {
+      "ProjectGuid": "24d84939-3437-49a6-b06b-8dd91c26509d",
+      "DisplayName": "Protocolli.IoT.Fontana_Scapolan.Worker",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
