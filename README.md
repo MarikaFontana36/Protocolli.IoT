@@ -6,7 +6,7 @@ Davide Scapolan = davide.scapolan@stud.tecnicosuperiorekennedy.it
 Marika Fontana = marika.fontana@stud.tecnicosuperiorekennedy.it
 
 SERVER:
-Per avviare correttamente la soluzion e del Server è necessario aggiungere una stringa di connessione aglu UserSecret dell'API così composti:
+Per avviare correttamente la soluzione del Server è necessario aggiungere una stringa di connessione agli UserSecret dell'API così composti:
 
 {
   "ConnectionStrings": {
