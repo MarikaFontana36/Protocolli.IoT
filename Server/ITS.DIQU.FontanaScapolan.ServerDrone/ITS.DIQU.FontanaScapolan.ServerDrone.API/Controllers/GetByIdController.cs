@@ -22,9 +22,11 @@ namespace ITS.DIQU.FontanaScapolan.ServerDrone.API.Controllers
         [HttpGet]
         public string Get(int id)
         {
+            //riceve una richiesta di get by id e passa la richiesta al servizio dedicato
             var drone = _dronesService.GetByDroneId(id);
+            //serializza in json i dati ricevuti dal servizio
             var Json = JsonSerializer.Serialize(drone);
-            //drones = ;
+            //restituisce una risposta al client con i dati richiesti
             return Json;
 
         }

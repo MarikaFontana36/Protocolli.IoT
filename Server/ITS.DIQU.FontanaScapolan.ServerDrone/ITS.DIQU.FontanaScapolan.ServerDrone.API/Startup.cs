@@ -29,7 +29,9 @@ namespace ITS.DIQU.FontanaScapolan.ServerDrone.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ITS.DIQU.FontanaScapolan.ServerDrone.API", Version = "v1" });
             });
+            //quando in un progetto viene richiesto un IDronesService passa DronesService
             services.AddSingleton<IDronesService, DronesService>();
+            //quando in un progetto viene richiesto un IDronesRepository passa DronesRepository
             services.AddSingleton<IDronesRepository, DronesRepository>();
         }
 

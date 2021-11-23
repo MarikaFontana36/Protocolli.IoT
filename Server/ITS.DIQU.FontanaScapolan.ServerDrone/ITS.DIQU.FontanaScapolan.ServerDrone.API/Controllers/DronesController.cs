@@ -22,7 +22,9 @@ namespace ITS.DIQU.FontanaScapolan.ServerDrone.API.Controllers
         [HttpPost]
         public string Post(Drone drone)
         {
+            //diceve i dati dalla chiamata post e li passa al servizio di inserimento
             _dronesService.Insert(drone);
+            //manda una risposta al client passando i dati inseriti come conferma
             return JsonSerializer.Serialize(drone).ToString();
 
         }
