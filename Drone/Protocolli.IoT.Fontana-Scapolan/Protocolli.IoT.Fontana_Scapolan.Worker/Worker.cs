@@ -25,21 +25,25 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
             Random random = new Random();
 
             var drone = new Drone();
-            drone.Id = 0;
-            drone.Date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffZ");
-            drone.Position = "Position";
-            var velocita = random.NextDouble() * 20;
-            drone.Speed = Math.Round(velocita, 2);
-            var batteria = random.Next(100);//massimo 100
-            drone.BatteryLevel = batteria;
-            
-            var wb = new WebClient();
-            var data = JsonSerializer.Serialize(drone);
-            string url = "http://localhost:44336/api/Drones";
-
-            using (var client = new HttpClient())
+            while (true)
             {
-                var response = await client.PostAsync(url, new StringContent(data, Encoding.UTF8, "application/json"));
+                drone.Id = 0;
+                drone.Date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffZ");
+                drone.Position = "Position";
+                var velocita = random.NextDouble() * 20;
+                drone.Speed = Math.Round(velocita, 2);
+                var batteria = random.Next(100);//massimo 100
+                drone.BatteryLevel = batteria;
+
+                var wb = new WebClient();
+                var data = JsonSerializer.Serialize(drone);
+                string url = "https://localhost:44336/api/Drones";
+
+                using (var client = new HttpClient())
+                {
+                    var response = await client.PostAsync(url, new StringContent(data, Encoding.UTF8, "application/json"));
+                }
+                System.Threading.Thread.Sleep(20000);
             }
         }
     }
