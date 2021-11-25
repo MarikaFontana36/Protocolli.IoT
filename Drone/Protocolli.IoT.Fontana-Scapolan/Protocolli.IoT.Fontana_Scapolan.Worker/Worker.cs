@@ -34,6 +34,8 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
                 drone.Speed = Math.Round(velocita, 2);
                 var batteria = random.Next(100);//massimo 100
                 drone.BatteryLevel = batteria;
+                drone.IdDrone = 1;
+                drone.Tempo = 20;//Tiene conto del tempo di accessione del drone
 
                 var wb = new WebClient();
                 var data = JsonSerializer.Serialize(drone);
