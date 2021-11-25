@@ -14,6 +14,6 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker.Models
         public double Speed { get; set; }
         public int BatteryLevel { get; set; }
         public int IdDrone { get; set; }
-        public int Tempo { get; set; }
+        public int Time { get; set; }
     }
 }
