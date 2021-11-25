@@ -14,4 +14,4 @@ Per avviare correttamente la soluzione del Server è necessario aggiungere una s
   }
 }
 
-N.B. il DB è un DB PostgreSQL fatto girare su Ubuntu montato su WSL2. La connection string andrà modificata nel caso in cui il DB sia montato su un altra WSL o su un altro sistema operativo
+N.B. il DB è un DB PostgreSQL fatto girare su Ubuntu montato su WSL2. La connection string andrà modificata nel caso in cui il DB sia montato su un'altra WSL o su un altro sistema operativo
