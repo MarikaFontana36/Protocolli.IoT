@@ -25,7 +25,8 @@ SELECT
     posizione           as Position,
     livello_batteria    as BatteryLevel,
     data                as Date,
-    id_drone            as IdDrone
+    id_drone            as IdDrone,
+    tempo_utilizzo      as Time
 FROM registro";
             //recupera la stringa di connessione
             using var connection = new NpgsqlConnection(_connectionString);
@@ -43,7 +44,8 @@ SELECT
     posizione           as Position,
     livello_batteria    as BatteryLevel,
     data                as Date,
-    id_drone            as IdDrone
+    id_drone            as IdDrone,
+    tempo_utilizzo      as Time
 FROM registro
 WHERE id = @DroneId";
             //recupera la stringa di connessione
@@ -56,8 +58,8 @@ WHERE id = @DroneId";
         {
             //genera la query di insert
             const string query = @"
-INSERT INTO registro(velocita, posizione, livello_batteria, data, id_drone)
-VALUES (@Speed, @Position, @BatteryLevel, @Date, @IdDrone)";
+INSERT INTO registro(velocita, posizione, livello_batteria, data, id_drone, tempo_utilizzo)
+VALUES (@Speed, @Position, @BatteryLevel, @Date, @IdDrone, @Time)";
             //recupera la stringa di connessione
             using var connection = new NpgsqlConnection(_connectionString);
             //esegue la query
@@ -75,7 +77,8 @@ SET
     posizione = @Position,
     livello_batteria = @BatteryLevel,
     data = @Date,
-    id_drone=@IdDrone
+    id_drone = @IdDrone,
+    tempo_utilizzo = @Time
 WHERE 
     id = @Id";
             //recupera la stringa di connessione

@@ -9,3 +9,5 @@ CREATE TABLE registro (
 );
 
 ALTER TABLE registro ADD COLUMN id_drone int NOT NULL;
+
+ALTER TABLE registro ADD COLUMN tempo_utilizzo int NOT NULL;
