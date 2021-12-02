@@ -22,27 +22,24 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            Random random = new Random();
-
-            var drone = new Drone();
+            
             while (true)
             {
-                drone.Id = 0;
-                drone.Date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffZ");
-                drone.Position = "Position";
-                var velocita = random.NextDouble() * 20;
-                drone.Speed = Math.Round(velocita, 2);
-                var batteria = random.Next(100);//massimo 100
-                drone.BatteryLevel = batteria;
-
                 var wb = new WebClient();
-                var data = JsonSerializer.Serialize(drone);
-                string url = "https://localhost:44336/api/Drones";
-
-                using (var client = new HttpClient())
+                
+                string url = "https://192.168.104.86:5001/api/Drones";
+                var sensor = new VirtualSensor();
+                string data = sensor.getJson();
+                var httpClientHandler = new HttpClientHandler();
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
+                {
+                    return true;
+                };
+                using (var client = new HttpClient(httpClientHandler))
                 {
                     var response = await client.PostAsync(url, new StringContent(data, Encoding.UTF8, "application/json"));
                 }
+                Console.WriteLine(data);
                 System.Threading.Thread.Sleep(20000);
             }
         }
