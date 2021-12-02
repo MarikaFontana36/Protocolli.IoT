@@ -16,7 +16,7 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
     {
         private readonly ILogger<Worker> _logger;
 
-        private const string TOPIC_PREFIX = "protocolliIot/drone1/stato";
+        private const string topic = "protocolliIot/drone1/stato";
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
@@ -60,7 +60,7 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
                 var data = sensor.getJson();
                 //Pubblicazione del messaggio
                 var message = new MqttApplicationMessageBuilder()
-               .WithTopic(TOPIC_PREFIX)
+               .WithTopic(topic)
                .WithPayload(data)
                .WithExactlyOnceQoS()
                .Build();
