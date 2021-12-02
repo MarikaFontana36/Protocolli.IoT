@@ -22,23 +22,11 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            Random random = new Random();
-
-            var drone = new Drone();
+            var wb = new WebClient();
+            var sensor = new VirtualSensor();
             while (true)
             {
-                drone.Id = 0;
-                drone.Date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffZ");
-                drone.Position = "Position";
-                var velocita = random.NextDouble() * 20;
-                drone.Speed = Math.Round(velocita, 2);
-                var batteria = random.Next(100); //Massimo 100
-                drone.BatteryLevel = batteria;
-                drone.IdDrone = 1;
-                drone.Time = 20; //Tiene conto del tempo di accessione del drone
-
-                var wb = new WebClient();
-                var data = JsonSerializer.Serialize(drone);
+                var data = sensor.getJson();
                 string url = "https://192.168.104.86:5001/api/Drones"; //Indirizzo IP della macchina su cui gira il server
 
                 var httpClientHandler = new HttpClientHandler();

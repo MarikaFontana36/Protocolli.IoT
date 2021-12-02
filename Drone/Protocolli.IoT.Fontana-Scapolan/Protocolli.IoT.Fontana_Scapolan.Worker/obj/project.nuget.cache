@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g5CSTaNlEqH4EiUN4N53Hp7QaMorl3f6mkTlE+qjpCQUkCdkwQl6t8D6h/Jk8eHPoXZSYmF00zIc38xdcio3/g==",
+  "dgSpecHash": "pfKYplUMUlHqtix4QBfZuxciyyRFArU5jajcNPOAbL2raiR+zxn8u55zj1NLkbVSIgN1W5SFLnlRVfXMEXHXJQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marika\\source\\repos\\Secondo anno\\Protocolli IoT\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj",
+  "projectFilePath": "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marika\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",
     "C:\\Users\\Marika\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
