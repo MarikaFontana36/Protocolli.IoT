@@ -9,11 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITS.DIQU.FontanaScapolan.Se
 		{A19F86C6-6C56-4C0A-A53F-7CF73DED4670} = {A19F86C6-6C56-4C0A-A53F-7CF73DED4670}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore", "ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj", "{A81CD861-AF41-4EE6-8290-D92625C1A544}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore", "ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj", "{A81CD861-AF41-4EE6-8290-D92625C1A544}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITS.DIQU.FontanaScapolan.ServerDrone.Infrastructure", "ITS.DIQU.FontanaScapolan.ServerDrone.Infrastructure\ITS.DIQU.FontanaScapolan.ServerDrone.Infrastructure.csproj", "{A19F86C6-6C56-4C0A-A53F-7CF73DED4670}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITS.DIQU.FontanaScapolan.ServerDrone.Infrastructure", "ITS.DIQU.FontanaScapolan.ServerDrone.Infrastructure\ITS.DIQU.FontanaScapolan.ServerDrone.Infrastructure.csproj", "{A19F86C6-6C56-4C0A-A53F-7CF73DED4670}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A81CD861-AF41-4EE6-8290-D92625C1A544} = {A81CD861-AF41-4EE6-8290-D92625C1A544}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITS.DIQU.FontanaScapolan.ServerDrone.MQTTClient", "ITS.DIQU.FontanaScapolan.ServerDrone.MQTTClient\ITS.DIQU.FontanaScapolan.ServerDrone.MQTTClient.csproj", "{F188B7F2-D096-4E31-9D31-61475F1DFBB3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A81CD861-AF41-4EE6-8290-D92625C1A544} = {A81CD861-AF41-4EE6-8290-D92625C1A544}
+		{A19F86C6-6C56-4C0A-A53F-7CF73DED4670} = {A19F86C6-6C56-4C0A-A53F-7CF73DED4670}
 	EndProjectSection
 EndProject
 Global
@@ -34,6 +40,10 @@ Global
 		{A19F86C6-6C56-4C0A-A53F-7CF73DED4670}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A19F86C6-6C56-4C0A-A53F-7CF73DED4670}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A19F86C6-6C56-4C0A-A53F-7CF73DED4670}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F188B7F2-D096-4E31-9D31-61475F1DFBB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F188B7F2-D096-4E31-9D31-61475F1DFBB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F188B7F2-D096-4E31-9D31-61475F1DFBB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F188B7F2-D096-4E31-9D31-61475F1DFBB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
