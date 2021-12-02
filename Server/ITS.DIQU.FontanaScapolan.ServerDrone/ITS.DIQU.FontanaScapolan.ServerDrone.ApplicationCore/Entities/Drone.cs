@@ -11,5 +11,9 @@ namespace ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.Entities
         public double Speed { get; set; }
 
         public int BatteryLevel { get; set; }
+
+        public int IdDrone { get; set; }
+
+        public int Time { get; set; }
     }
 }

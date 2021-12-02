@@ -7,3 +7,7 @@ CREATE TABLE registro (
 	livello_batteria integer,
 	data timestamp without time zone
 );
+
+ALTER TABLE registro ADD COLUMN id_drone int NOT NULL;
+
+ALTER TABLE registro ADD COLUMN tempo_utilizzo int NOT NULL;
