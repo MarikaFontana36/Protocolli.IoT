@@ -1,11 +1,12 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Protocolli.IoT.Fontana_Scapolan.Worker.Models;
+using MQTTnet;
+using MQTTnet.Client;
+using MQTTnet.Client.Options;
 using System;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,6 +16,7 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
     {
         private readonly ILogger<Worker> _logger;
 
+        private const string TOPIC_PREFIX = "protocolliIot/drone1/stato";
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
@@ -22,22 +24,49 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var sensor = new VirtualSensor();
             var wb = new WebClient();
+            var sensor = new VirtualSensor();
+
+            //Creazione MQTT Client
+            var factory = new MqttFactory();
+            var mqttClient = factory.CreateMqttClient();
+
+            //Utilizzo connessione TCP
+            var options = new MqttClientOptionsBuilder()
+                            .WithTcpServer("192.168.104.86", 1883) //Port is optional
+                             .Build();
+
+             await mqttClient.ConnectAsync(options, CancellationToken.None);
+
+            //Riconnessione
+            mqttClient.UseDisconnectedHandler(async e =>
+            {
+                Console.WriteLine("### DISCONNECTED FROM SERVER ###");
+                await Task.Delay(TimeSpan.FromSeconds(5));
+
+                try
+                {
+                    await mqttClient.ConnectAsync(options, CancellationToken.None);
+                }
+                catch
+                {
+                    Console.WriteLine("### RECONNECTING FAILED ###");
+                }
+            });
+
             while (true)
             {
-                var data = sensor.toJson();
-                string url = "https://192.168.104.86:5001/api/Drones"; //Indirizzo IP della macchina su cui gira il server
+                //Ricezione del messaggio
+                var data = sensor.getJson();
+                //Pubblicazione del messaggio
+                var message = new MqttApplicationMessageBuilder()
+               .WithTopic(TOPIC_PREFIX)
+               .WithPayload(data)
+               .WithExactlyOnceQoS()
+               .Build();
 
-                var httpClientHandler = new HttpClientHandler();
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
-                {
-                    return true;
-                };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var response = await client.PostAsync(url, new StringContent(data, Encoding.UTF8, "application/json"));
-                }
+                await mqttClient.PublishAsync(message, CancellationToken.None);
+
                 Console.WriteLine(data);
                 System.Threading.Thread.Sleep(20000);
             }

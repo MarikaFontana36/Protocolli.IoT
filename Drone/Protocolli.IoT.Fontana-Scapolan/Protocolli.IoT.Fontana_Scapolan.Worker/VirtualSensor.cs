@@ -10,7 +10,7 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
 {
     public class VirtualSensor
     {
-        public string toJson() 
+        public string getJson()
         {
             Random random = new Random();
 
