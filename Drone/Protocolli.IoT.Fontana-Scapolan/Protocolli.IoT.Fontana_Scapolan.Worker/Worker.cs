@@ -32,19 +32,25 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
                 drone.Position = "Position";
                 var velocita = random.NextDouble() * 20;
                 drone.Speed = Math.Round(velocita, 2);
-                var batteria = random.Next(100);//massimo 100
+                var batteria = random.Next(100); //Massimo 100
                 drone.BatteryLevel = batteria;
                 drone.IdDrone = 1;
-                drone.Time = 20;//Tiene conto del tempo di accessione del drone
+                drone.Time = 20; //Tiene conto del tempo di accessione del drone
 
                 var wb = new WebClient();
                 var data = JsonSerializer.Serialize(drone);
-                string url = "https://localhost:44336/api/Drones";
+                string url = "https://192.168.104.86:5001/api/Drones"; //Indirizzo IP della macchina su cui gira il server
 
-                using (var client = new HttpClient())
+                var httpClientHandler = new HttpClientHandler();
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
+                {
+                    return true;
+                };
+                using (var client = new HttpClient(httpClientHandler))
                 {
                     var response = await client.PostAsync(url, new StringContent(data, Encoding.UTF8, "application/json"));
                 }
+                Console.WriteLine(data);
                 System.Threading.Thread.Sleep(20000);
             }
         }
