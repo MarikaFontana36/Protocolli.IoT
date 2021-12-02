@@ -33,10 +33,18 @@ namespace ITS.DIQU.FontanaScapolan.ServerDrone.MQTTClient
             var mqttClient = factory.CreateMqttClient();
             // Creates a new client
             var options = new MqttClientOptionsBuilder()
-                                            .WithTcpServer("localhost", 1883)
+                                            .WithTcpServer("192.168.104.86", 1883)
                                             .Build();
 
-            await mqttClient.ConnectAsync(options, CancellationToken.None); // Since 3.0.5 with CancellationToken
+            mqttClient.UseConnectedHandler(async e =>
+            {
+                Console.WriteLine("### CONNECTED WITH SERVER ###");
+
+                // Subscribe to a topic
+                await mqttClient.SubscribeAsync(new MqttClientSubscribeOptionsBuilder().WithTopicFilter("protocolliIot/+/stato").Build());
+
+                Console.WriteLine("### SUBSCRIBED ###");
+            });
 
             mqttClient.UseDisconnectedHandler(async e =>
             {
@@ -53,28 +61,22 @@ namespace ITS.DIQU.FontanaScapolan.ServerDrone.MQTTClient
                 }
             });
 
-            mqttClient.UseConnectedHandler(async e =>
-            {
-                Console.WriteLine("### CONNECTED WITH SERVER ###");
-
-                // Subscribe to a topic
-                await mqttClient.SubscribeAsync(new MqttClientSubscribeOptionsBuilder().WithTopicFilter("protocolliIot/+/stato").Build());
-
-                Console.WriteLine("### SUBSCRIBED ###");
-            });
-
             mqttClient.UseApplicationMessageReceivedHandler(e =>
             {
                 Console.WriteLine("### RECEIVED APPLICATION MESSAGE ###");
                 Console.WriteLine($"+ Topic = {e.ApplicationMessage.Topic}");
-                Console.WriteLine($"+ Payload = {Encoding.UTF8.GetString(e.ApplicationMessage.Payload)}");
+                var data = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
+                Console.WriteLine($"+ Payload = {data}");
                 var drone = new Drone();
-                drone = JsonSerializer.Deserialize<Drone>(e.ApplicationMessage.Payload);
+                drone = JsonSerializer.Deserialize<Drone>(data);
                 _dronesService.Insert(drone);
                 Console.WriteLine($"+ QoS = {e.ApplicationMessage.QualityOfServiceLevel}");
                 Console.WriteLine($"+ Retain = {e.ApplicationMessage.Retain}");
                 Console.WriteLine();
             });
+
+            await mqttClient.ConnectAsync(options, CancellationToken.None); // Since 3.0.5 with CancellationToken
+            
         }
     }
 }
