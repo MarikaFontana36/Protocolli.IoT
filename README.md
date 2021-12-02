@@ -16,11 +16,11 @@ protocolliIot/drone1/stato
 
 payload:
 {
-  "id": 0,
-  "date": "2021-12-02T15:02:00.364Z",
-  "position": "string",
-  "speed": 0,
-  "batteryLevel": 0,
-  "idDrone": 0,
-  "time": 0
+  "Id": 0,
+  "Date": "2021-12-02T15:02:00.364Z",
+  "Position": "string",
+  "Speed": 0,
+  "BatteryLevel": 0,
+  "IdDrone": 0,
+  "Time": 0
 }
