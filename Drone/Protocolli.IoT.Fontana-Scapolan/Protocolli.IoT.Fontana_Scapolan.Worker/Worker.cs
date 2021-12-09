@@ -36,7 +36,8 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
             //Utilizzo connessione TCP
             var options = new MqttClientOptionsBuilder()
                             .WithTcpServer("192.168.104.86", 1883) //Port is optional
-                             .Build();
+                            .WithCleanSession(false)//se perdo qualche comando quando mi disconnetto, lo ricevo quando mi riconnetto
+                            .Build();
 
             //Consumo dei dati
             mqttClient.UseApplicationMessageReceivedHandler(e =>
@@ -108,6 +109,7 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
                .WithTopic(topic)
                .WithPayload(data)
                .WithExactlyOnceQoS()
+               .WithRetainFlag(true) //l'ultimo msg del topic viene salvato
                .Build();
 
                 await mqttClient.PublishAsync(message, CancellationToken.None);
