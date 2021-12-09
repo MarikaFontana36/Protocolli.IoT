@@ -12,15 +12,25 @@ SERVER:Per avviare correttamente la soluzione del Server è necessario aggiunger
 N.B. il DB è un DB PostgreSQL fatto girare su Ubuntu montato su WSL2. La connection string andrà modificata nel caso in cui il DB sia montato su un'altra WSL o su un altro sistema operativo
 
 topic:
-protocolliIot/drone1/stato
+	protocolliIot/drone1/stato
+	protocolliIot/drone1/comando/accensione
+	protocolliIot/drone1/comando/led
+	protocolliIot/drone1/comando/base
 
 payload:
-{
-  "Id": 0,
-  "Date": "2021-12-02T15:02:00.364Z",
-  "Position": "string",
-  "Speed": 0,
-  "BatteryLevel": 0,
-  "IdDrone": 0,
-  "Time": 0
-}
+	stato:
+	{
+	  "Id": 0,
+	  "Date": "2021-12-02T15:02:00.364Z",
+	  "Position": "string",
+	  "Speed": 0,
+	  "BatteryLevel": 0,
+	  "IdDrone": 0,
+	  "Time": 0
+	}
+
+	comando/accensione,comando/led:
+	0
+
+	comando/base:
+	1
