@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj": {}
+    "C:\\DIQU-2021\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj": {}
   },
   "projects": {
-    "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj": {
+    "C:\\DIQU-2021\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj",
+        "projectUniqueName": "C:\\DIQU-2021\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj",
         "projectName": "Protocolli.IoT.Fontana_Scapolan.Worker",
-        "projectPath": "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj",
-        "packagesPath": "C:\\Users\\Marika\\.nuget\\packages\\",
-        "outputPath": "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\obj\\",
+        "projectPath": "C:\\DIQU-2021\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj",
+        "packagesPath": "C:\\Users\\Davide\\.nuget\\packages\\",
+        "outputPath": "C:\\DIQU-2021\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Marika\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Davide\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

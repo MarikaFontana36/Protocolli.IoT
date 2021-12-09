@@ -10,22 +10,22 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
 {
     public class VirtualSensor
     {
-        public string getJson()
+        public string toJson() 
         {
             Random random = new Random();
 
             var drone = new Drone();
-
             drone.Id = 0;
             drone.Date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fffZ");
             drone.Position = "Position";
             var velocita = random.NextDouble() * 20;
             drone.Speed = Math.Round(velocita, 2);
-            var batteria = random.Next(100);//massimo 100
+            var batteria = random.Next(100); //Massimo 100
             drone.BatteryLevel = batteria;
-            string data = JsonSerializer.Serialize(drone);
+            drone.IdDrone = 1;
+            drone.Time = 20; //Tiene conto del tempo di accessione del drone
+            var data = JsonSerializer.Serialize(drone);
             return data;
         }
-
     }
 }

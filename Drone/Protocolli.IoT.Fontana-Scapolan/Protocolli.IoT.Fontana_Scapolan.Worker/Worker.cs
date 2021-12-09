@@ -22,14 +22,13 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            
+            var sensor = new VirtualSensor();
+            var wb = new WebClient();
             while (true)
             {
-                var wb = new WebClient();
-                
-                string url = "https://192.168.104.86:5001/api/Drones";
-                var sensor = new VirtualSensor();
-                string data = sensor.getJson();
+                var data = sensor.toJson();
+                string url = "https://192.168.104.86:5001/api/Drones"; //Indirizzo IP della macchina su cui gira il server
+
                 var httpClientHandler = new HttpClientHandler();
                 httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
                 {
