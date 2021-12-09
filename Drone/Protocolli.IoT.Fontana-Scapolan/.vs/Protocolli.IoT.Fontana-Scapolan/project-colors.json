@@ -15,6 +15,11 @@
       "ProjectGuid": "24d84939-3437-49a6-b06b-8dd91c26509d",
       "DisplayName": "Protocolli.IoT.Fontana_Scapolan.Worker",
       "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 3

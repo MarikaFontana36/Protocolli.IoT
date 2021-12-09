@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Lew9/NSqXTvVOFF/8jp2MEwVgbOwuKvDYoMmarPCpR7SSC3xRNWj4L78hmkiBLMbVDWAypwvKZD7cHva1jTzYg==",
+  "dgSpecHash": "omeqoraLXKwEjBvr0BaUDQRnkurdB8nFQxkgCyC4ghCJ6ZofKJEN9xgpvw36uSNQR514DtlW5CvZx+B7XD7JYA==",
   "success": true,
-  "projectFilePath": "C:\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj",
+  "projectFilePath": "C:\\DIQU-2021\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

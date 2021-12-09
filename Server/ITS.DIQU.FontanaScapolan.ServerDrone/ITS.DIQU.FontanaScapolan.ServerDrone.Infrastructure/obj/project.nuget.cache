@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Mpn6eY7ddoLsX/dOGEnfVIrWR9sYOOZNCmO2xV8ypq7OTSQT8jV6BRgf9s1kl8MqM6lU4+XNXuUon2xZ0Edx8Q==",
+  "dgSpecHash": "St7g+msur/GTHsHA3UGFUsuC0LNm5PgvXZeXINlfSHp8fWcLITMym2R/SCpn5xxra8RZXAMrXeV7MTQPkAlvRA==",
   "success": true,
-  "projectFilePath": "C:\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.Infrastructure\\ITS.DIQU.FontanaScapolan.ServerDrone.Infrastructure.csproj",
+  "projectFilePath": "C:\\DIQU-2021\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.Infrastructure\\ITS.DIQU.FontanaScapolan.ServerDrone.Infrastructure.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Marika\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
-    "C:\\Users\\Marika\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
-    "C:\\Users\\Marika\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
-    "C:\\Users\\Marika\\.nuget\\packages\\npgsql\\6.0.0\\npgsql.6.0.0.nupkg.sha512",
-    "C:\\Users\\Marika\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\Davide\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\Davide\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Davide\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Davide\\.nuget\\packages\\npgsql\\6.0.0\\npgsql.6.0.0.nupkg.sha512",
+    "C:\\Users\\Davide\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

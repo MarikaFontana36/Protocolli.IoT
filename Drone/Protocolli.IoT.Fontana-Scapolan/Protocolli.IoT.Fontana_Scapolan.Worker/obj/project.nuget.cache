@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pfKYplUMUlHqtix4QBfZuxciyyRFArU5jajcNPOAbL2raiR+zxn8u55zj1NLkbVSIgN1W5SFLnlRVfXMEXHXJQ==",
+  "dgSpecHash": "qbYs/RLnuB7kcirIef7kOO201hECA2fVCD8HVkuqRLyLzwVZhZZVSCGNfEu5ax0Lx8NKjmwP/vi49RIZrom5Sw==",
   "success": true,
   "projectFilePath": "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj",
   "expectedPackageFiles": [
@@ -31,6 +31,7 @@
     "C:\\Users\\Marika\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\Marika\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\Marika\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\Marika\\.nuget\\packages\\mqttnet\\3.1.1\\mqttnet.3.1.1.nupkg.sha512",
     "C:\\Users\\Marika\\.nuget\\packages\\system.diagnostics.eventlog\\5.0.0\\system.diagnostics.eventlog.5.0.0.nupkg.sha512",
     "C:\\Users\\Marika\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\Marika\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
