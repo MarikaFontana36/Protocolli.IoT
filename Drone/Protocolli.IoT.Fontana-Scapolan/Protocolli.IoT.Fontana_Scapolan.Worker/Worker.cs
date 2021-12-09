@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Client.Options;
+using MQTTnet.Client.Subscribing;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -17,6 +18,7 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
         private readonly ILogger<Worker> _logger;
 
         private const string topic = "protocolliIot/drone1/stato";
+        private const string topic_cmd = "protocolliIot/drone1/comando/+";
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
@@ -36,7 +38,49 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
                             .WithTcpServer("192.168.104.86", 1883) //Port is optional
                              .Build();
 
-             await mqttClient.ConnectAsync(options, CancellationToken.None);
+            //Consumo dei dati
+            mqttClient.UseApplicationMessageReceivedHandler(e =>
+            {
+                Console.WriteLine("### ESECUZIONE COMANDO: ###");
+                if (Encoding.UTF8.GetString(e.ApplicationMessage.Payload) == "1")//Controllo accensione drone
+                {
+                    if (e.ApplicationMessage.Topic == "protocolliIot/drone1/comando/accensione")
+                    {
+                        Console.WriteLine("Drone acceso");
+                    }
+                    if (e.ApplicationMessage.Topic == "protocolliIot/drone1/comando/led")
+                    {
+                        Console.WriteLine("Led acceso");
+                    }
+                    if (e.ApplicationMessage.Topic == "protocolliIot/drone1/comando/base")
+                    {
+                        Console.WriteLine("Il drone ritorna alla base");
+                    }
+                }
+                else
+                {
+                    if (e.ApplicationMessage.Topic == "protocolliIot/drone1/comando/accensione")
+                    {
+                        Console.WriteLine("Drone spento");
+                    }
+                    if (e.ApplicationMessage.Topic == "protocolliIot/drone1/comando/led")
+                    {
+                        Console.WriteLine("Led spento");
+                    }
+                }
+                Console.WriteLine("");
+            });
+
+
+            mqttClient.UseConnectedHandler(async e =>
+            {
+                Console.WriteLine("### CONNECTED WITH SERVER ###");
+
+                //Sottoscrizione al topic_cmd
+                await mqttClient.SubscribeAsync(new MqttClientSubscribeOptionsBuilder().WithTopicFilter(topic_cmd).Build());
+
+                Console.WriteLine("### SUBSCRIBED ###");
+            });
 
             //Riconnessione
             mqttClient.UseDisconnectedHandler(async e =>
@@ -53,6 +97,7 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
                     Console.WriteLine("### RECONNECTING FAILED ###");
                 }
             });
+            await mqttClient.ConnectAsync(options, CancellationToken.None);
 
             while (true)
             {
