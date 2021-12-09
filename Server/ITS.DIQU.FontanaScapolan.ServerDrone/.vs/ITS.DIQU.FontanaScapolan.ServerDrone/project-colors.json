@@ -25,7 +25,12 @@
       "ProjectGuid": "f188b7f2-d096-4e31-9d31-61475f1dfbb3",
       "DisplayName": "ITS.DIQU.FontanaScapolan.ServerDrone.MQTTClient",
       "ColorIndex": 3
+    },
+    "0c73600f-9007-4da7-8229-0ece19e91005": {
+      "ProjectGuid": "0c73600f-9007-4da7-8229-0ece19e91005",
+      "DisplayName": "ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 5
 }

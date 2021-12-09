@@ -1,0 +1,142 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0-windows7.0": {
+      "MQTTnet/3.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/MQTTnet.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/MQTTnet.dll": {}
+        }
+      },
+      "ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MQTTnet/3.1.1": {
+      "sha512": "vMHOmkEZ5YuLMDMpRqoUF42NVEwkCCM4sEEHnoc0KFr799eYa8p7lY/I2r7y+cFrT7RyDBwy3W+BjfEZlbLz5A==",
+      "type": "package",
+      "path": "mqttnet/3.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "images/Logo_128x128.png",
+        "lib/net452/MQTTnet.dll",
+        "lib/net461/MQTTnet.dll",
+        "lib/net5.0/MQTTnet.deps.json",
+        "lib/net5.0/MQTTnet.dll",
+        "lib/netcoreapp3.1/MQTTnet.deps.json",
+        "lib/netcoreapp3.1/MQTTnet.dll",
+        "lib/netstandard1.3/MQTTnet.deps.json",
+        "lib/netstandard1.3/MQTTnet.dll",
+        "lib/netstandard2.0/MQTTnet.deps.json",
+        "lib/netstandard2.0/MQTTnet.dll",
+        "lib/netstandard2.1/MQTTnet.deps.json",
+        "lib/netstandard2.1/MQTTnet.dll",
+        "lib/uap10.0/MQTTnet.dll",
+        "lib/uap10.0/MQTTnet.pri",
+        "mqttnet.3.1.1.nupkg.sha512",
+        "mqttnet.nuspec"
+      ]
+    },
+    "ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore/1.0.0": {
+      "type": "project",
+      "path": "../ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore/ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj",
+      "msbuildProject": "../ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore/ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0-windows7.0": [
+      "ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore >= 1.0.0",
+      "MQTTnet >= 3.1.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Davide\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\DIQU-2021\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient\\ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient.csproj",
+      "projectName": "ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient",
+      "projectPath": "C:\\DIQU-2021\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient\\ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient.csproj",
+      "packagesPath": "C:\\Users\\Davide\\.nuget\\packages\\",
+      "outputPath": "C:\\DIQU-2021\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Davide\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0-windows7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "projectReferences": {
+            "C:\\DIQU-2021\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj": {
+              "projectPath": "C:\\DIQU-2021\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
+        "dependencies": {
+          "MQTTnet": {
+            "target": "Package",
+            "version": "[3.1.1, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.12, 5.0.12]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
