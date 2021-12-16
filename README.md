@@ -53,16 +53,16 @@ Il DB è un DB PostgreSQL fatto girare su Ubuntu montato su WSL2. La connection 
 	
 ## SICUREZZA
 
-Per quanto riguarda la sicurezza, considerando che i droni si connettono via Sim, 
+Per quanto riguarda la sicurezza, considerando che i droni si connettono via Sim, il livello Network non è sicuramente praticabile; a livello di Transport è possibile criptare la comunicazione e ottenere una maggiore protezione.
 
 ## AUTENTICAZIONI
 
-Ogni client ha delle credenziali proprie che vengono utilizzate per riconoscere il client e conferire autorizzazioni specifiche ad ognuno
+Ogni client ha delle credenziali proprie che vengono utilizzate per far riconoscere il client dal broker e conferire autorizzazioni specifiche ad ognuno.
 
 ## AUTORIZZAZIONI
 
 ###	Lettura
-
+I droni hanno accesso a protocolliIot/drone(numero drone) mentre l'applicazione server ha accesso a protocolliIot/+/stato.
 
 ###	Scrittura
-
+I droni hanno accesso a protocolliIot/drone(numero drone)/stato mentre l'applicazione server per i comandi ha accesso a protocolliIot/+/comando/# ed è accessibile solo a determinati utenti.
