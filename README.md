@@ -1,6 +1,6 @@
 # Protocolli.IoT
 
-## COMPONENTI:
+## COMPONENTI
 
 |Cognome | Nome | E-mail|
 |:-:|:-:|:-:|
@@ -8,20 +8,32 @@
 | Fontana | Marika | marika.fontana@stud.tecnicosuperiorekennedy.it |
 
 ## SERVER
+
 Per avviare correttamente la soluzione del Server è necessario aggiungere una stringa di connessione agli UserSecret dell'API così composti:
 
 { "ConnectionStrings": { "Drone": "Server=127.0.0.1;Port=5432;Database=Nome DB;User Id=Nome utente;Password=*Password utente;" } }
 
 ## N.B.
+
 Il DB è un DB PostgreSQL fatto girare su Ubuntu montato su WSL2. La connection string andrà modificata nel caso in cui il DB sia montato su un'altra WSL o su un altro sistema operativo
 
-## Topics
-	protocolliIot/drone1/stato
-	protocolliIot/drone1/comando/accensione
-	protocolliIot/drone1/comando/led
-	protocolliIot/drone1/comando/base
+## TOPICS
 
-## Payload
+	protocolliIot/drone1/stato
+		CleanSession = false
+		QoS = 0
+	protocolliIot/drone1/comando/accensione
+		QoS = 1
+		RetainFlag = true
+	protocolliIot/drone1/comando/lede
+		QoS = 1
+		RetainFlag = true
+	protocolliIot/drone1/comando/basee
+		QoS = 1
+		RetainFlag = true
+
+## PAYLOAD
+
 ###	protocolliIot/drone1/stato
 	{
 	  "Id": 0,
@@ -38,3 +50,19 @@ Il DB è un DB PostgreSQL fatto girare su Ubuntu montato su WSL2. La connection 
 
 ###	protocolliIot/drone1/comando/base:
 	1
+	
+## SICUREZZA
+
+Per quanto riguarda la sicurezza, considerando che i droni si connettono via Sim, 
+
+## AUTENTICAZIONI
+
+Ogni client ha delle credenziali proprie che vengono utilizzate per riconoscere il client e conferire autorizzazioni specifiche ad ognuno
+
+## AUTORIZZAZIONI
+
+###	Lettura
+
+
+###	Scrittura
+
