@@ -45,7 +45,7 @@ Il DB è un DB PostgreSQL fatto girare su Ubuntu montato su WSL2. La connection 
 	  "Time": 0
 	}
 
-###	protocolliIot/drone1/comando/accensione,comando/led:
+###	protocolliIot/drone1/comando/accensione , comando/led:
 	0/1
 
 ###	protocolliIot/drone1/comando/base:
