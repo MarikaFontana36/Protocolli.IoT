@@ -25,10 +25,10 @@ Il DB è un DB PostgreSQL fatto girare su Ubuntu montato su WSL2. La connection 
 	protocolliIot/drone1/comando/accensione
 		QoS = 1
 		RetainFlag = true
-	protocolliIot/drone1/comando/lede
+	protocolliIot/drone1/comando/led
 		QoS = 1
 		RetainFlag = true
-	protocolliIot/drone1/comando/basee
+	protocolliIot/drone1/comando/base
 		QoS = 1
 		RetainFlag = true
 
