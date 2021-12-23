@@ -40,13 +40,13 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "MQTTnet": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "System.Threading.Tasks": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

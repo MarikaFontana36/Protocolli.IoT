@@ -7,6 +7,18 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
-    <PackageReference Include="MQTTnet" Version="3.1.1" />
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CoAPNet">
+      <HintPath>bin\CoAPNet.dll</HintPath>
+    </Reference>
+    <Reference Include="CoAPNet.Server">
+      <HintPath>bin\CoAPNet.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="CoAPNet.Udp">
+      <HintPath>bin\CoAPNet.Udp.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>
