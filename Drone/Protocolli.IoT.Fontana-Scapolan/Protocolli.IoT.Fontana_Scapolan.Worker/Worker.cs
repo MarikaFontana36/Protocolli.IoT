@@ -1,12 +1,9 @@
+using CoAPNet;
+using CoAPNet.Options;
+using CoAPNet.Server;
+using CoAPNet.Udp;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using MQTTnet;
-using MQTTnet.Client;
-using MQTTnet.Client.Options;
-using MQTTnet.Client.Subscribing;
 using System;
-using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,108 +12,83 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
 {
     public class Worker : BackgroundService
     {
-        private readonly ILogger<Worker> _logger;
-
-        private const string topic = "protocolliIot/drone1/stato";
-        private const string topic_cmd = "protocolliIot/drone1/comando/+";
-        public Worker(ILogger<Worker> logger)
-        {
-            _logger = logger;
-        }
-
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var wb = new WebClient();
-            var sensor = new VirtualSensor();
+            // Create a task that finishes when Ctrl+C is pressed
+            var taskCompletionSource = new TaskCompletionSource<bool>();
 
-            //Creazione MQTT Client
-            var factory = new MqttFactory();
-            var mqttClient = factory.CreateMqttClient();
-
-            //Utilizzo connessione TCP
-            var options = new MqttClientOptionsBuilder()
-                            .WithTcpServer("192.168.104.86", 1883) //Port is optional
-                            .WithCleanSession(false)//se perdo qualche comando quando mi disconnetto, lo ricevo quando mi riconnetto
-                            .Build();
-
-            //Consumo dei dati
-            mqttClient.UseApplicationMessageReceivedHandler(e =>
+            // Capture the Control + C event
+            Console.CancelKeyPress += (s, e) =>
             {
-                Console.WriteLine("### ESECUZIONE COMANDO: ###");
-                if (Encoding.UTF8.GetString(e.ApplicationMessage.Payload) == "1")//Controllo accensione drone
-                {
-                    if (e.ApplicationMessage.Topic == "protocolliIot/drone1/comando/accensione")
-                    {
-                        Console.WriteLine("Drone acceso");
-                    }
-                    if (e.ApplicationMessage.Topic == "protocolliIot/drone1/comando/led")
-                    {
-                        Console.WriteLine("Led acceso");
-                    }
-                    if (e.ApplicationMessage.Topic == "protocolliIot/drone1/comando/base")
-                    {
-                        Console.WriteLine("Il drone ritorna alla base");
-                    }
-                }
-                else
-                {
-                    if (e.ApplicationMessage.Topic == "protocolliIot/drone1/comando/accensione")
-                    {
-                        Console.WriteLine("Drone spento");
-                    }
-                    if (e.ApplicationMessage.Topic == "protocolliIot/drone1/comando/led")
-                    {
-                        Console.WriteLine("Led spento");
-                    }
-                }
-                Console.WriteLine("");
-            });
+                Console.WriteLine("Exiting");
+                taskCompletionSource.SetResult(true);
 
+                // Prevent the Main task from being destroyed prematurely.
+                e.Cancel = true;
+            };
 
-            mqttClient.UseConnectedHandler(async e =>
+            Console.WriteLine("Press <Ctrl>+C to exit");
+
+            // Create a resource handler.
+            var myHandler = new CoapResourceHandler();
+            // Register a /hello resource.
+            myHandler.Resources.Add(new HelloResource("/hello"));
+
+            // Create a new CoapServer using UDP as it's base transport
+            var myServer = new CoapServer(new CoapUdpTransportFactory());
+
+            try
             {
-                Console.WriteLine("### CONNECTED WITH SERVER ###");
+                // Listen to all ip address and subscribe to multicast requests.
+                await myServer.BindTo(new CoapUdpEndPoint(Coap.Port) { JoinMulticast = true });
 
-                //Sottoscrizione al topic_cmd
-                await mqttClient.SubscribeAsync(new MqttClientSubscribeOptionsBuilder().WithTopicFilter(topic_cmd).Build());
+                // Start our server.
+                await myServer.StartAsync(myHandler, CancellationToken.None);
+                Console.WriteLine("Server Started!");
 
-                Console.WriteLine("### SUBSCRIBED ###");
-            });
-
-            //Riconnessione
-            mqttClient.UseDisconnectedHandler(async e =>
+                // Wait indefinitely until the application quits.
+                await taskCompletionSource.Task;
+            }
+            catch (Exception ex)
             {
-                Console.WriteLine("### DISCONNECTED FROM SERVER ###");
-                await Task.Delay(TimeSpan.FromSeconds(5));
+                // Canceled tasks are expected, safe to ignore.
+                if (ex is TaskCanceledException)
+                    return;
 
-                try
-                {
-                    await mqttClient.ConnectAsync(options, CancellationToken.None);
-                }
-                catch
-                {
-                    Console.WriteLine("### RECONNECTING FAILED ###");
-                }
-            });
-            await mqttClient.ConnectAsync(options, CancellationToken.None);
+                Console.WriteLine($"Exception caught: {ex}");
 
-            while (true)
+                Console.WriteLine($"Press <Enter> to exit");
+                Console.Read();
+            }
+            finally
             {
-                //Ricezione del messaggio
-                var data = sensor.getJson();
-                //Pubblicazione del messaggio
-                var message = new MqttApplicationMessageBuilder()
-               .WithTopic(topic)
-               .WithPayload(data)
-               .WithExactlyOnceQoS()
-               .WithRetainFlag(true) //l'ultimo msg del topic viene salvato
-               .Build();
-
-                await mqttClient.PublishAsync(message, CancellationToken.None);
-
-                Console.WriteLine(data);
-                System.Threading.Thread.Sleep(20000);
+                Console.WriteLine("Shutting Down Server");
+                await myServer.StopAsync(CancellationToken.None);
             }
         }
     }
+
+    public class HelloResource : CoapResource
+    {
+        public HelloResource(string uri) : base(uri)
+        {
+            Metadata.InterfaceDescription.Add("read");
+
+            Metadata.ResourceTypes.Add("message");
+            Metadata.Title = "Hello World";
+        }
+
+        public override CoapMessage Get(CoapMessage request)
+        {
+            Console.WriteLine($"Got request: {request}");
+
+            return new CoapMessage
+            {
+                Code = CoapMessageCode.Content,
+                Options = { new ContentFormat(ContentFormatType.TextPlain) },
+                Payload = Encoding.UTF8.GetBytes("Hello World!")
+            };
+        }
+    }
 }
+
