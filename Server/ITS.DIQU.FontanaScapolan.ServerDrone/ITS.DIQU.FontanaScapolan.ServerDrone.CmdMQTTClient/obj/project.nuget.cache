@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "jRBVcWtUo8Hc+vAAJgUbiVjXS8VSkq+XlBPHw4t3rHdqzVdsD8fnR08F50RevKifkySCxfZUy5TxHltTa2q1wA==",
+  "success": true,
+  "projectFilePath": "C:\\DIQU-2021\\IoTProtocolls\\MQTT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient\\ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Davide\\.nuget\\packages\\mqttnet\\3.1.1\\mqttnet.3.1.1.nupkg.sha512",
+    "C:\\Users\\Davide\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}

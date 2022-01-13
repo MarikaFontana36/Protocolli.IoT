@@ -7,4 +7,4 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore
-build_property.ProjectDir = C:\DIQU-2021\Protocolli.IoT\Server\ITS.DIQU.FontanaScapolan.ServerDrone\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\
+build_property.ProjectDir = C:\DIQU-2021\IoTProtocolls\MQTT\Server\ITS.DIQU.FontanaScapolan.ServerDrone\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\
