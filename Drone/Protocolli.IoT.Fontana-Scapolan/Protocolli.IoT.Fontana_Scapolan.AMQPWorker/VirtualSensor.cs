@@ -1,4 +1,4 @@
-﻿using Protocolli.IoT.Fontana_Scapolan.Worker.Models;
+﻿using Protocolli.IoT.Fontana_Scapolan.AMQPWorker.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Protocolli.IoT.Fontana_Scapolan.Worker
+namespace Protocolli.IoT.Fontana_Scapolan.AMQPWorker
 {
     public class VirtualSensor
     {

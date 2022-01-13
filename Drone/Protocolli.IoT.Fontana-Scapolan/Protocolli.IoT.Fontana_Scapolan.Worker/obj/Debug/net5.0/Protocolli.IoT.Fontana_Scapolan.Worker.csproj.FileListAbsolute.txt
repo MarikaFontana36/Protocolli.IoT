@@ -183,3 +183,4 @@ C:\Protocolli.IoT\Drone\Protocolli.IoT.Fontana-Scapolan\Protocolli.IoT.Fontana_S
 C:\Protocolli.IoT\Drone\Protocolli.IoT.Fontana-Scapolan\Protocolli.IoT.Fontana_Scapolan.Worker\obj\Debug\net5.0\ref\Protocolli.IoT.Fontana_Scapolan.Worker.dll
 C:\Protocolli.IoT\Drone\Protocolli.IoT.Fontana-Scapolan\Protocolli.IoT.Fontana_Scapolan.Worker\obj\Debug\net5.0\Protocolli.IoT.Fontana_Scapolan.Worker.pdb
 C:\Protocolli.IoT\Drone\Protocolli.IoT.Fontana-Scapolan\Protocolli.IoT.Fontana_Scapolan.Worker\obj\Debug\net5.0\Protocolli.IoT.Fontana_Scapolan.Worker.genruntimeconfig.cache
+C:\Protocolli.IoT\Drone\Protocolli.IoT.Fontana-Scapolan\Protocolli.IoT.Fontana_Scapolan.Worker\bin\Debug\net5.0\RabbitMQ.Client.dll

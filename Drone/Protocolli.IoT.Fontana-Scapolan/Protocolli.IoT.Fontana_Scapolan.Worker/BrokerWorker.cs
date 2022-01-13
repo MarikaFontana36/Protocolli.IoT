@@ -4,6 +4,8 @@ using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Client.Options;
 using MQTTnet.Client.Subscribing;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -13,13 +15,13 @@ using System.Threading.Tasks;
 
 namespace Protocolli.IoT.Fontana_Scapolan.Worker
 {
-    public class Worker : BackgroundService
+    public class BrokerWorker : BackgroundService
     {
-        private readonly ILogger<Worker> _logger;
+        private readonly ILogger<BrokerWorker> _logger;
 
         private const string topic = "protocolliIot/drone1/stato";
         private const string topic_cmd = "protocolliIot/drone1/comando/+";
-        public Worker(ILogger<Worker> logger)
+        public BrokerWorker(ILogger<BrokerWorker> logger)
         {
             _logger = logger;
         }
@@ -27,7 +29,7 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             var wb = new WebClient();
-            var sensor = new VirtualSensor();
+            
 
             //Creazione MQTT Client
             var factory = new MqttFactory();
@@ -35,7 +37,7 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
 
             //Utilizzo connessione TCP
             var options = new MqttClientOptionsBuilder()
-                            .WithTcpServer("192.168.104.86", 1883) //Port is optional
+                            .WithTcpServer("192.168.104.69", 1883) //Port is optional
                             .WithCleanSession(false)//se perdo qualche comando quando mi disconnetto, lo ricevo quando mi riconnetto
                             .Build();
 
@@ -102,19 +104,42 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
 
             while (true)
             {
-                //Ricezione del messaggio
-                var data = sensor.getJson();
-                //Pubblicazione del messaggio
-                var message = new MqttApplicationMessageBuilder()
-               .WithTopic(topic)
-               .WithPayload(data)
-               .WithExactlyOnceQoS()
-               .WithRetainFlag(true) //l'ultimo msg del topic viene salvato
-               .Build();
+                ConnectionFactory factoryAMQP = new ConnectionFactory();
+                factoryAMQP.Uri = new Uri("amqps://svrwymtt:6ELHGVZAv0opLBdkF8qHFxf2RfeMH44Q@rattlesnake.rmq.cloudamqp.com/svrwymtt");
+                using (var connection = factoryAMQP.CreateConnection())
+                using (var channel = connection.CreateModel())
+                {
+                    channel.QueueDeclare(queue: "sensor",
+                                         durable: true,
+                                         exclusive: false,
+                                         autoDelete: false,
+                                         arguments: null);
 
-                await mqttClient.PublishAsync(message, CancellationToken.None);
+                    var consumer = new EventingBasicConsumer(channel);
+                    consumer.Received += async (model, ea) =>
+                    {
+                        var body = ea.Body.ToArray();
+                        //Recupero del messaggio
+                        string data = Encoding.UTF8.GetString(body);
+                        //Pubblicazione del messaggio
+                        var message = new MqttApplicationMessageBuilder()
+                       .WithTopic(topic)
+                       .WithPayload(data)
+                       .WithExactlyOnceQoS()
+                       .WithRetainFlag(true) //L'ultimo msg del topic viene salvato
+                       .Build();
 
-                Console.WriteLine(data);
+                        await mqttClient.PublishAsync(message, CancellationToken.None);
+
+                        Console.WriteLine(data);
+                    };
+
+                    //Dopo aver fatto il publish sul broker mqtt, avviene la conferma della ricezione del dato
+                    channel.BasicConsume(queue: "sensor",
+                                         autoAck: true,
+                                         consumer: consumer);
+                }
+                
                 System.Threading.Thread.Sleep(20000);
             }
         }
