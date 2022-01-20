@@ -18,7 +18,7 @@ Per avviare correttamente la soluzione del Server è necessario aggiungere una s
 Il DB è un DB PostgreSQL fatto girare su Ubuntu montato su WSL2. La connection string andrà modificata nel caso in cui il DB sia montato su un'altra WSL o su un altro sistema operativo
 
 ## UTILIZZO AMQP
-Abbiamo decio di utilizzare AMQP come coda del Drone per gestire l'assenza di connessione inquanto ci sembra il metodo più efficace di risolvere il problema della connessione eventuale.
+Abbiamo deciso di utilizzare AMQP come coda del Drone per gestire l'assenza di connessione in quanto ci sembra il metodo più efficace per risolvere il problema della connessione eventuale.
 
 ## TOPICS
 
@@ -56,7 +56,7 @@ Abbiamo decio di utilizzare AMQP come coda del Drone per gestire l'assenza di co
 	
 ## SICUREZZA
 
-Per quanto riguarda la sicurezza, considerando che i droni si connettono via Sim, il livello Network non è sicuramente praticabile; a livello di Transport è possibile criptare la comunicazione e ottenere una maggiore protezione.
+Per quanto riguarda la sicurezza, considerando che i droni si connettono via SIM, il livello Network non è sicuramente praticabile; a livello di Transport è possibile criptare la comunicazione e ottenere una maggiore protezione.
 
 ## AUTENTICAZIONI
 
