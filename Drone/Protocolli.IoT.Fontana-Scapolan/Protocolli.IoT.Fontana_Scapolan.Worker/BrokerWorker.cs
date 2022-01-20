@@ -37,7 +37,7 @@ namespace Protocolli.IoT.Fontana_Scapolan.Worker
 
             //Utilizzo connessione TCP
             var options = new MqttClientOptionsBuilder()
-                            .WithTcpServer("192.168.104.69", 1883) //Port is optional
+                            .WithTcpServer("192.168.101.34", 1883) //Port is optional
                             .WithCleanSession(false)//se perdo qualche comando quando mi disconnetto, lo ricevo quando mi riconnetto
                             .Build();
 
