@@ -1273,11 +1273,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.AMQPWorker\\Protocolli.IoT.Fontana_Scapolan.AMQPWorker.csproj",
+      "projectUniqueName": "C:\\Protocolli.IoT\\Drone2\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.AMQPWorker\\Protocolli.IoT.Fontana_Scapolan.AMQPWorker.csproj",
       "projectName": "Protocolli.IoT.Fontana_Scapolan.AMQPWorker",
-      "projectPath": "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.AMQPWorker\\Protocolli.IoT.Fontana_Scapolan.AMQPWorker.csproj",
+      "projectPath": "C:\\Protocolli.IoT\\Drone2\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.AMQPWorker\\Protocolli.IoT.Fontana_Scapolan.AMQPWorker.csproj",
       "packagesPath": "C:\\Users\\Marika\\.nuget\\packages\\",
-      "outputPath": "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.AMQPWorker\\obj\\",
+      "outputPath": "C:\\Protocolli.IoT\\Drone2\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.AMQPWorker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Marika\\AppData\\Roaming\\NuGet\\NuGet.Config",

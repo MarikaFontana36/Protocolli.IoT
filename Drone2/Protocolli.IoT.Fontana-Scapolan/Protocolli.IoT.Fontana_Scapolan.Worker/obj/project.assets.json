@@ -1310,11 +1310,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj",
+      "projectUniqueName": "C:\\Protocolli.IoT\\Drone2\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj",
       "projectName": "Protocolli.IoT.Fontana_Scapolan.Worker",
-      "projectPath": "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj",
+      "projectPath": "C:\\Protocolli.IoT\\Drone2\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\Protocolli.IoT.Fontana_Scapolan.Worker.csproj",
       "packagesPath": "C:\\Users\\Marika\\.nuget\\packages\\",
-      "outputPath": "C:\\Protocolli.IoT\\Drone\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\obj\\",
+      "outputPath": "C:\\Protocolli.IoT\\Drone2\\Protocolli.IoT.Fontana-Scapolan\\Protocolli.IoT.Fontana_Scapolan.Worker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Marika\\AppData\\Roaming\\NuGet\\NuGet.Config",
