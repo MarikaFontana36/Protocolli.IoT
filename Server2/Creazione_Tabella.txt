@@ -1,0 +1,13 @@
+CREATEDB db_drone;
+
+CREATE TABLE registro (
+	id serial,
+	velocita numeric(8,2) NOT NULL,
+	posizione character varying(100),
+	livello_batteria integer,
+	data timestamp without time zone
+);
+
+ALTER TABLE registro ADD COLUMN id_drone int NOT NULL;
+
+ALTER TABLE registro ADD COLUMN tempo_utilizzo int NOT NULL;

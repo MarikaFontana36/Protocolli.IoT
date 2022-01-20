@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "+Dh0zef6HFzFJkwswUWtx/y3wo6EKhqcH68DnQDf8zPKOm8OeMpm5fgDPKb+jeDPU70lrYXXinwmmo5Rkq65Vg==",
+  "success": true,
+  "projectFilePath": "C:\\DIQU-2021\\Protocolli.IoT\\Server2\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient\\ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Davide\\.nuget\\packages\\rabbitmq.client\\6.2.2\\rabbitmq.client.6.2.2.nupkg.sha512",
+    "C:\\Users\\Davide\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\Davide\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512",
+    "C:\\Users\\Davide\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
