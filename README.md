@@ -21,8 +21,7 @@ Il DB è un DB PostgreSQL fatto girare su Ubuntu montato su WSL2. La connection 
 ### SERVER & DRONE
 Abbiamo deciso di utilizzare AMQP come coda del Drone per gestire l'assenza di connessione in quanto ci sembra il metodo più efficace per risolvere il problema della connessione eventuale.
 
-###SERVER2 & DRONE2
-
+### SERVER2 & DRONE2
 Nel caso in cui decidessimo di utilizzare AMQP per la comunicazione tra Drone e Server, creeremmo due code diverse: una per l'invio della telemetria ("sensor") e l'altra per l'invio dei comandi ("command"). Il Drone avrebbe un metodo BasicPublish sulla coda "sensor" e un metodo BasicConsume sulla cosa "command", mentre il Server avrebbe un programma che consuma i dati nella coda "sensor" e una Windows Form che invia i comandi sulla coda "command".
 
 ## TOPICS
