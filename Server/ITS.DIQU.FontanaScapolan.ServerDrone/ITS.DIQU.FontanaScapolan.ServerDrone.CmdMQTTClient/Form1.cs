@@ -35,7 +35,7 @@ namespace ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient
             mqttClient = factory.CreateMqttClient();
             // Creates a new client
             var options = new MqttClientOptionsBuilder()
-                                            .WithTcpServer("192.168.104.86", 1883)
+                                            .WithTcpServer("192.168.101.34", 1883)
                                             .Build();
 
             mqttClient.UseDisconnectedHandler(async e =>

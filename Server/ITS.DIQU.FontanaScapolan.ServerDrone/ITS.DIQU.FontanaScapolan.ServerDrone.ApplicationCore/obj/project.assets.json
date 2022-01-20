@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\DIQU-2021\\IoTProtocolls\\MQTT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj",
+      "projectUniqueName": "C:\\DIQU-2021\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj",
       "projectName": "ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore",
-      "projectPath": "C:\\DIQU-2021\\IoTProtocolls\\MQTT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj",
+      "projectPath": "C:\\DIQU-2021\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore.csproj",
       "packagesPath": "C:\\Users\\Davide\\.nuget\\packages\\",
-      "outputPath": "C:\\DIQU-2021\\IoTProtocolls\\MQTT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\\obj\\",
+      "outputPath": "C:\\DIQU-2021\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.ApplicationCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Davide\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "diBykmiK5pmF5ldkYVSjxKjRiNM7/2Nosaio+LG5gLP0mCqFpz0nOffrMbLe4i+EVQBBZ8H0ckcZB9bdVOJgqQ==",
+  "dgSpecHash": "bMrc4uB/pH1NFAaAVqFUq0mpgnv10bZbjPkMy6ngkbc2HVv6mFXcos48VZ4aoclmhyKfloMLeQo8oq05i/fXZA==",
   "success": true,
-  "projectFilePath": "C:\\DIQU-2021\\IoTProtocolls\\MQTT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.MQTTClient\\ITS.DIQU.FontanaScapolan.ServerDrone.MQTTClient.csproj",
+  "projectFilePath": "C:\\DIQU-2021\\Protocolli.IoT\\Server\\ITS.DIQU.FontanaScapolan.ServerDrone\\ITS.DIQU.FontanaScapolan.ServerDrone.MQTTClient\\ITS.DIQU.FontanaScapolan.ServerDrone.MQTTClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Davide\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Davide\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",
