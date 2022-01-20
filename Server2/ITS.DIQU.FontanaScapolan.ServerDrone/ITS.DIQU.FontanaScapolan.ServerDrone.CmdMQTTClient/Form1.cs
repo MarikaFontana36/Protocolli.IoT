@@ -8,12 +8,13 @@ namespace ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient
 {
     public partial class Form1 : Form
     {
+
+        List<string> listName = new List<string>();
         ConnectionFactory factory = new ConnectionFactory();
         public Form1()
         {
             InitializeComponent();
             AMQPinit();
-            List<string> listName = new List<string>();
             listName.Add("drone1");
             cmbDrone.DataSource = listName;
         }
@@ -129,9 +130,10 @@ namespace ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient
                 var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
-                                     routingKey: "comando." + cmbDrone.SelectedText + ".base",
+                                     routingKey: "comando." + listName[cmbDrone.SelectedIndex] + ".base",
                                      basicProperties: null,
                                      body: body);
+                Console.WriteLine(listName[cmbDrone.SelectedIndex]);
             }
 
         }

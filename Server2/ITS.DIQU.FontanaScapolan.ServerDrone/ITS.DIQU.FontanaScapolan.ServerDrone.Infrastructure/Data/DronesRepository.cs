@@ -13,7 +13,8 @@ namespace ITS.DIQU.FontanaScapolan.ServerDrone.Infrastructure.Data
 
         public DronesRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("Drone");
+            //_connectionString = configuration.GetConnectionString("Drone");
+            _connectionString = "Server=127.0.0.1;Port=5432;Database=db_drone;User Id=davide;Password=davide;";
         }
         public IEnumerable<Drone> GetAll()
         {
