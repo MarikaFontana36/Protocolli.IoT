@@ -7,60 +7,70 @@
 | Scapolan | Davide | davide.scapolan@stud.tecnicosuperiorekennedy.it |
 | Fontana | Marika | marika.fontana@stud.tecnicosuperiorekennedy.it |
 
-## SERVER
+## DIAGRAMMI
+|![posizionamento Totem](./Images/01-pista.jpeg)|![relazioni componenti](./Images/02-relazioni.jpeg)|
+|-|-|
 
-Per avviare correttamente la soluzione del Server è necessario aggiungere una stringa di connessione agli UserSecret dell'API così composti:
+## UTILIZZO MQTT
 
-{ "ConnectionStrings": { "Drone": "Server=127.0.0.1;Port=5432;Database=Nome DB;User Id=Nome utente;Password=Password utente;" } }
+### CONNESSIONI
+#### Totem pista
+	clientId = "lettore*N*"
+	cleanSession = false
+	lastWillTopic = "RFID/pista*M*/lettore*N*/Will"
+	lastWillQos = 1
+	lastWillMessage = "exit"
+	lastWillRetainFlag = false
+	keepAlive = 60
+	
+#### Totem punteggio
+	clientId = "lettorePunteggio"
+	cleanSession = true
+	lastWillTopic = "RFID/lettorePunteggio/Will"
+	lastWillQos = 1
+	lastWillMessage = "exit"
+	lastWillRetainFlag = false
+	keepAlive = 60
 
-## N.B.
+### TOPICS
 
-Il DB è un DB PostgreSQL fatto girare su Ubuntu montato su WSL2. La connection string andrà modificata nel caso in cui il DB sia montato su un'altra WSL o su un altro sistema operativo
-
-## UTILIZZO AMQP
-### SERVER & DRONE
-Abbiamo deciso di utilizzare AMQP come coda del Drone per gestire l'assenza di connessione in quanto ci sembra il metodo più efficace per risolvere il problema della connessione eventuale.
-
-### SERVER2 & DRONE2
-Abbiamo deciso di utilizzare AMQP per la comunicazione tra Drone e Server creando due code diverse: una per l'invio della telemetria ("sensor") e l'altra per l'invio dei comandi ("command"). Il Drone ha un metodo BasicPublish sulla coda "sensor" e un metodo BasicConsume sulla cosa "command", mentre il Server ha un programma che consuma i dati nella coda "sensor" e una Windows Form che invia i comandi sulla coda "command".
-
-## TOPICS
-
-	protocolliIot/drone1/stato
+	RFID/pista*M*/lettore*N*/Will
 		CleanSession = false
-		QoS = 0
-	protocolliIot/drone1/comando/accensione
 		QoS = 1
-		RetainFlag = true
-	protocolliIot/drone1/comando/led
+		
+	RFID/pista*M*/lettore*N*/lettura
+		CleanSession = false
+		QoS = 2
+		
+	RFID/lettorePunteggio/Will
 		QoS = 1
-		RetainFlag = true
-	protocolliIot/drone1/comando/base
-		QoS = 1
-		RetainFlag = true
+		
+	RFID/lettorePunteggio/*user*
+		RequestResponseInformation = true
+		QoS = 2
 
-## PAYLOAD
+### PAYLOAD
 
-###	protocolliIot/drone1/stato
+#### RFID/pista\*M*/lettore\*N*/Will & RFID/lettorePunteggio/Will:
+	"exit"
+
+#### RFID/pista\*M*/lettore\*N*/lettura:
 	{
-	  "Id": 0,
-	  "Date": "2021-12-02T15:02:00.364Z",
-	  "Position": "string",
-	  "Speed": 0,
-	  "BatteryLevel": 0,
-	  "IdDrone": 0,
-	  "Time": 0
+		date: "2022-01-27T12:19:15.364Z",
+		user: *codice Skipass*
 	}
 
-###	protocolliIot/drone1/comando/accensione, comando/led:
-	0/1
-
-###	protocolliIot/drone1/comando/base:
+#### RFID/lettorePunteggio/\*codice Skipass*:
 	1
+#### Risposta
+	{
+		user: *codice Skipass*,
+		points: 75 
+	}
 	
 ## SICUREZZA
 
-Per quanto riguarda la sicurezza, considerando che i droni si connettono via SIM, il livello Network non è sicuramente praticabile; a livello di Transport è possibile criptare la comunicazione e ottenere una maggiore protezione.
+Per quanto riguarda la sicurezza, considerando che i totem si connettono via SIM, il livello Network non è sicuramente praticabile; a livello di Transport è possibile criptare la comunicazione e ottenere una maggiore protezione.
 
 ## AUTENTICAZIONI
 
@@ -69,7 +79,9 @@ Ogni client ha delle credenziali proprie che vengono utilizzate per far riconosc
 ## AUTORIZZAZIONI
 
 ###	Lettura
-I droni hanno accesso a protocolliIot/drone(numero drone) mentre l'applicazione server ha accesso a protocolliIot/+/stato.
+L'applicazione lato server ha accesso a RFID/#.
 
 ###	Scrittura
-I droni hanno accesso a protocolliIot/drone(numero drone)/stato mentre l'applicazione server per i comandi ha accesso a protocolliIot/+/comando/# ed è accessibile solo a determinati utenti.
+I totem in pista hanno accesso a RFID/pista\*M*/lettore\*N*/Will e RFID/pista\*M*/lettore\*N*/lettura mentre il totem di punteggio ha accesso a RFID/lettorePunteggio/Will e RFID/lettorePunteggio/\*codice Skipass*
+
+
