@@ -54,7 +54,6 @@ namespace ITS.DIQU.FontanaScapolan.ServerDrone.CmdMQTTClient
             });
 
             await mqttClient.ConnectAsync(options, CancellationToken.None); // Since 3.0.5 with CancellationToken
-            
         }
 
         private async void ckbDrone_CheckChangedAsync(object sender, EventArgs e)
